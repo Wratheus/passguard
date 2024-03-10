@@ -5,9 +5,9 @@ import 'package:passguard/src/presentation/pages/registration/service/service.da
 import 'package:passguard/src/presentation/pages/registration/widgets/content.dart';
 
 class RegistrationPageMain extends StatelessWidget {
-  final RegistrationPageService service;
+  final RegistrationPageService service = RegistrationPageService();
 
-  const RegistrationPageMain({super.key, required this.service});
+  RegistrationPageMain({super.key});
 
   @override
   Widget build(BuildContext context) {
