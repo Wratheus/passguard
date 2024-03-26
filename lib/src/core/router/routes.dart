@@ -9,7 +9,7 @@ sealed class Routers {
   static FluroRouter router = FluroRouter();
 
   static void setup() {
-    route("/auth", (_) => AuthPageMain());
+    route("/", (_) => AuthPageMain());
     route("/registration", (_) => RegistrationPageMain());
     route("/home", (_) => HomePageMain());
     route("/setting", (_) => SettingsPageMain());

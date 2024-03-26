@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:passguard/src/core/services/database/database.dart';
 import 'package:passguard/src/data/i18n/translations.g.dart';
 import 'package:passguard/src/data/models/auth/user.dart';
 import 'package:passguard/src/data/models/build.dart';
@@ -8,9 +9,9 @@ import 'package:passguard/src/data/models/personalization_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'helpers/storage.dart';
 
-// TODO add drift local DB
 // TODO remove unused LOCALES
 final class App {
+  static DatabaseService db = DatabaseService();
   static final Dio dio = Dio();
   static Build? buildPath;
   static SharedPreferences? localStorage;
