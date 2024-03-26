@@ -7,10 +7,13 @@ import 'package:passguard/src/core/extensions/log.dart';
 import 'package:passguard/src/core/extensions/log_response.dart';
 import 'package:passguard/src/core/helpers/lib.dart';
 import 'package:passguard/src/core/helpers/storage.dart';
+import 'package:passguard/src/core/router/navigator.dart';
+import 'package:passguard/src/core/router/params/auth.dart';
 import 'package:passguard/src/core/services/ui.dart';
 import 'package:passguard/src/core/utils/current_device.dart';
 import 'package:passguard/src/core/utils/enums.dart';
 import 'package:passguard/src/data/i18n/translations.g.dart';
+import 'package:passguard/src/data/models/client_send_options.dart';
 
 sealed class HttpService {
   static Future<Response<dynamic>> download(

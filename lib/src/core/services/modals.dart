@@ -2,6 +2,10 @@ import 'package:passguard/src/configs/theme/colors/buttons/color_button.dart';
 import 'package:passguard/src/core/utils/enums.dart';
 import 'package:passguard/src/core/services/ui.dart';
 import 'package:flutter/material.dart';
+import 'package:passguard/src/data/models/build.dart';
+import 'package:passguard/src/presentation/modals/alert/main.dart';
+import 'package:passguard/src/presentation/modals/notify/main.dart';
+import 'package:passguard/src/presentation/modals/update_app/main.dart';
 
 sealed class ModalsService {
   static Future onUpdateApp(BuildContext context, {Build? accessBuild}) async {
@@ -16,13 +20,6 @@ sealed class ModalsService {
     return await UiService.showModalBottom(
         context, NotifyMain(type: type, title: title, message: message),
         barrierColor: Colors.transparent);
-  }
-
-  static Future onSelectLang(BuildContext context) async {
-    return await UiService.showModal(
-      context,
-      const SelectLangMain(),
-    );
   }
 
   static Future<bool> onAlert(BuildContext context,

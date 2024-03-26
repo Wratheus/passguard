@@ -6,6 +6,8 @@ enum CodeType { dataMatrix, code128, ean13, qr, undefined }
 
 enum IconBgShape { square, squareRounded, circle }
 
+enum ButtonHeightSize { standart, average, big }
+
 enum ScannerMode {
   collectionVariableMode,
   collectionMode,

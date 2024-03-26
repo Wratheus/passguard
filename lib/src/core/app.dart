@@ -3,17 +3,16 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:passguard/src/data/i18n/translations.g.dart';
 import 'package:passguard/src/data/models/auth/user.dart';
+import 'package:passguard/src/data/models/build.dart';
 import 'package:passguard/src/data/models/personalization_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'helpers/storage.dart';
 
 // TODO add drift local DB
 // TODO remove unused LOCALES
-// TODO add MODALS presentation
-// TODO LOOKUP THEME remove unused, refactor
-// TODO add CLIENT SEND OPTIONS FOR DIO
 final class App {
   static final Dio dio = Dio();
+  static Build? buildPath;
   static SharedPreferences? localStorage;
   static String? token;
   static User? user;
