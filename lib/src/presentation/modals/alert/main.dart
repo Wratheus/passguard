@@ -4,7 +4,7 @@ import 'package:passguard/src/configs/theme/colors/buttons/primary.dart';
 import 'package:passguard/src/presentation/modals/alert/widget.dart';
 
 class AlertMain extends StatelessWidget {
-  AlertMain(
+  const AlertMain(
       {super.key,
       required this.confirm,
       required this.title,

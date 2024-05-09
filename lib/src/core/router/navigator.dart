@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:passguard/src/core/app.dart';
-import 'package:passguard/src/core/router/params/auth.dart';
 
 sealed class NavigatorPage {
-  static Future auth(BuildContext context, [AuthParams? params]) async {
-    /// reset App Access
-    App.reset();
-    return await Navigator.of(context).pushNamedAndRemoveUntil(
-        '/start', (Route route) => false,
-        arguments: params);
+  static Future login(BuildContext context) async {
+    return await Navigator.of(context)
+        .pushNamedAndRemoveUntil('/', (Route route) => false);
   }
 
   static Future registration(BuildContext context) async =>

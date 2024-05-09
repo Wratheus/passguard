@@ -1,7 +1,6 @@
 sealed class AppConfig {
-  static const int buildId = 000001;
-  static const String buildName = '0.0.1';
+  static const int buildId = 100000;
+  static const String buildName = '1.0.0';
   static const bool notifications = true;
-  static String vApi = ""; // TODO ADD API Version
-  static String domainApi = ''; // TODO ADD DOMAIN NAME
+  static String domainApi = 'http://localhost:8080/api/';
 }

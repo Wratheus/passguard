@@ -6,11 +6,7 @@ import 'package:passguard/src/configs/app.dart';
 import 'package:passguard/src/core/extensions/log.dart';
 import 'package:passguard/src/core/extensions/log_response.dart';
 import 'package:passguard/src/core/helpers/lib.dart';
-import 'package:passguard/src/core/helpers/storage.dart';
-import 'package:passguard/src/core/router/navigator.dart';
-import 'package:passguard/src/core/router/params/auth.dart';
 import 'package:passguard/src/core/services/ui.dart';
-import 'package:passguard/src/core/utils/current_device.dart';
 import 'package:passguard/src/core/utils/enums.dart';
 import 'package:passguard/src/data/i18n/translations.g.dart';
 import 'package:passguard/src/data/models/client_send_options.dart';
@@ -70,7 +66,7 @@ sealed class HttpService {
       }
 
       Response<dynamic> response = await App.dio
-          .post('${AppConfig.domainApi}V${AppConfig.vApi}/$method',
+          .post('${AppConfig.domainApi}/$method',
           data: FormData.fromMap(_queryParameters(queryParameters)),
           cancelToken: options.cancelToken)
           .catchError(
@@ -136,15 +132,6 @@ sealed class HttpService {
               message: t.serverResponseParameterMissing, notify: errorNotify);
         }
 
-        if (responseData.containsKey('tID') && responseData['tID'] != null) {
-          StorageHelper.tId = responseData['tID'];
-        }
-
-        if (!responseData['is_auth'] &&
-            method != 'user/auth' &&
-            method != 'user/getLinkAuth') {
-          return await _noAuth();
-        }
         await _message(responseData['message'] ?? [], errorNotify: errorNotify);
 
         if (responseData['success']) {
@@ -222,17 +209,6 @@ sealed class HttpService {
     return false;
   }
 
-  static Future<bool> _noAuth() async {
-    await UiService.hideLoader();
-    await NavigatorPage.auth(
-        App.rootWidgetKey.currentContext!,
-        AuthParams(
-            notify: true,
-            notifyTitle: t.sessionIsNotActive,
-            notifyDescript: t.sessionRejected));
-    return false;
-  }
-
   static Map<String, dynamic> _queryParameters(
       Map<String, dynamic>? queryParameters) {
     queryParameters ??= {};
@@ -241,9 +217,7 @@ sealed class HttpService {
       queryParameters['auth'] = App.token;
     }
 
-    queryParameters['did'] = CurrentDevice.id;
     queryParameters['app_version'] = AppConfig.buildId.toString();
-    queryParameters['lang'] = App.locale;
     return queryParameters;
   }
 }

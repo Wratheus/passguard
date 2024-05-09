@@ -18,38 +18,12 @@ sealed class StorageHelper {
   static set themeMode(SettingThemeMode value) =>
       _set('themeMode', LibHelper.enumToString(type: value));
 
-  static SettingTextSize get textSize {
-    SettingTextSize? textSize;
-    String? varTextSizeMode = _get('textSize', null);
-    if (varTextSizeMode != null) {
-      textSize = LibHelper.enumFromString<SettingTextSize>(
-          SettingTextSize.values, varTextSizeMode);
-    }
-
-    return textSize ?? SettingTextSize.standart;
-  }
-
-  static set textSize(SettingTextSize value) =>
-      _set('textSize', LibHelper.enumToString(type: value));
-
-  static int? get lastUpdateVersion => _get('lastUpdateVersion', null);
-
-  static set lastUpdateVersion(int? value) => _set('lastUpdateVersion', value);
-
-  static int? get tId => _get('tId', null);
-
-  static set tId(int? value) => _set('tId', value);
-
   static String? get lang => _get('lang', null);
 
   static set lang(String? value) {
     App.locale = value;
     _set('lang', value);
   }
-
-  static String? get domainName => _get('domainName', null);
-
-  static set domainName(String? value) => _set('domainName', value);
 
   static T? _get<T>(a, b) {
     try {

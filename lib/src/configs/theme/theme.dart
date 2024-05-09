@@ -10,11 +10,6 @@ class ThemeApp {
 
   static TextTheme get textTheme {
     double scale = 1;
-    if (App.personalizationApp.textSize == SettingTextSize.veryLarge) {
-      scale = 1.15;
-    } else if (App.personalizationApp.textSize == SettingTextSize.large) {
-      scale = 1.08;
-    }
 
     return TextTheme(
         displayLarge: TextStyle(fontSize: 57 * scale, letterSpacing: 0),

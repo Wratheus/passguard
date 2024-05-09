@@ -12,7 +12,7 @@ sealed class Routers {
     route("/", (_) => AuthPageMain());
     route("/registration", (_) => RegistrationPageMain());
     route("/home", (_) => HomePageMain());
-    route("/setting", (_) => SettingsPageMain());
+    route("/settings", (_) => SettingsPageMain());
   }
 
   static void route(String path, Widget Function(dynamic arg) func,
