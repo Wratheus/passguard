@@ -46,17 +46,17 @@ sealed class UiService {
         if (vibration) {
           vibError();
         }
-        color = Colors.red;
+        color = Colors.redAccent;
       case TypeMessage.warning:
         if (vibration) {
           vibMedium();
         }
-        color = Colors.orange;
+        color = Colors.orangeAccent;
       case TypeMessage.success:
         if (vibration) {
           vibHeavy();
         }
-        color = Colors.green;
+        color = Colors.greenAccent;
       case TypeMessage.notify:
         if (vibration) {
           vibHeavy();

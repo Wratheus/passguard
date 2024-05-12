@@ -2,19 +2,10 @@ import 'package:passguard/src/configs/theme/colors/buttons/color_button.dart';
 import 'package:passguard/src/core/utils/enums.dart';
 import 'package:passguard/src/core/services/ui.dart';
 import 'package:flutter/material.dart';
-import 'package:passguard/src/data/models/build.dart';
 import 'package:passguard/src/presentation/modals/alert/main.dart';
 import 'package:passguard/src/presentation/modals/notify/main.dart';
-import 'package:passguard/src/presentation/modals/update_app/main.dart';
 
 sealed class ModalsService {
-  static Future onUpdateApp(BuildContext context, {Build? accessBuild}) async {
-    return await UiService.showModalBottom(
-      context,
-      UpdateAppMain(accessBuild: accessBuild),
-    );
-  }
-
   static Future onNotify(BuildContext context,
       {required String title, String message = '', TypeMessage? type}) async {
     return await UiService.showModalBottom(

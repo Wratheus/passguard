@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -21,4 +22,5 @@ class AuthPageBloc extends Bloc<AuthPageEvent, AuthPageState> {
   final AuthPageService service;
   final TextEditingController loginTextController = TextEditingController();
   final TextEditingController pswdTextController = TextEditingController();
+  CancelToken? loginCancelToken;
 }
